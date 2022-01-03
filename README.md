@@ -50,20 +50,25 @@ Note : The goal is to check for grammer errors. We assume that the training data
 * The intuition of the n-gram model is that instead of computing the probability of a word given its entire history, we can approximate the history by just the last few words. The real probability of a sentence is calculated using the chain rule. The probability of each word is calculated based on the entire previous words in that sentence. P(word_A, word_B, word_C, word_D) = P(word_A) * P(word_B/word_A) * P(word_C/word_A,word_B) * P(word_D/word_A,word_B,word_C). What we do instead using n-gram analysis, we take into consideration only the last n-1 words to calculate the probability of the next word because in natural language a word may be only depends on some previous words and not only on the entire previous words of the sentence. In our case we are going to detect basic grammer errors which can easily be detected by only check the 2 consecutive words. That's why we chose to use bigram language model. The estimated probability of bigram model would be : estimated_P(word_A, word_B, word_C, word_D) = P(word_A) * P(word_B/word_A) * P(word_C/word_B) * P(word_D/word_C).
 * To evaluate the model we can use different metrics like auc score, f1-score, confusion matrix (False Positive, False Negative, True Positive, True Negative), accuracy score etc. In our case we want the model to detect the grammer errors which means that we should focus more in reaching a high True Positive Rate (Recall) / Low False Negative Rate. 
 * We are going to perform hyperparameter tuning. Our hyperparameters for the bigram language model are the threshold and k-smoothing parameter. We are going to tune different values for threshold and k-smoothing parameter, check for each combination of them how the model behaves (measure different performance metrics like auc score, recall, f1 score, false positives) and choose the threshold that gives us the best performance. The metric that will determine the best model will be f1_score of class 0 since we want to focus more on predicting well sentences which are grammatically incorrect.
+* The table below shows the performance metrics auc score, f1 score and recall for the default and tuned bigram language model.
+
+| Model Name                        | AUC Score                | F1-Score                    |                 Recall |  
+|:---------------------------------:|:------------------------:|:---------------------------:|:----------------------:|
+|Default bigram language model      |     0.666                |     0.67                    |         0.67           |    
+|Tuned bigram language model        |     0.833                |     0.857                   |                  1     |     
+
+* After tuning the threshold and k smoothing parameter we could achieve a higher f1_score, higher auc score and higher recall which means an overall better model performance.
+* 
 
 
-| Model Name        | AUC Score                | F1-Score                    |                 Recall |  
-|:-----------------:|:------------------------:|:---------------------------:|:----------------------:|
-|Default Model      |     0.666                |     0.67                    |         0.67           |    
-|Tuned Model        |     0.833                |     0.857                   |                  1     |       
+## Techniques to improve the model performance
 
-
-## Other Used Techniques
-
-* Object oriented programming is used to build this project in order to create modular and flexible code.
-* Built a client facing API (web application) using Flask.
-* A retraining approach is implemented using Flask framework.
-* Using Logging every information about data cleaning und model training HISTORY (since we may train the model many times using retraining approach)  is stored is some txt files and csv files for example : the amount of missing values for each feature, the amount of records removed after dropping the missing values and outliers, the amount of at least frequent categories labeled with 'other' during encoding, the dropped constant features, highly correlated independent features, which features are dropping during handling multicolleniarity, best selected features, model accuracies and errors etc.
+1. Collecting more text data. We calculate the probability of new english sentences and it may be grammatically correct. But in case of having a small corpus (not huge enough) many words won't match any word from our corpus which will result in having a low probability and maybe classifying it as grammtically incorrect. By increasing the size of our corpus we increase the probabilty of seeing those words from the new test sentences in our corpus and as a result we'll have a more accuracte probability of whether a sentence can be grammatically correct or not.
+2. Quality of the corpus/text data. In order to achieve good results in detecting grammer errors we assume that our corpus is grammtically correct. If there were grammer errors in our corpus, new sentences which are grammatically incorrect would have many matches in the corpus which would cause their probabilities to be high and as a result to be classified as grammatically correct.
+2. Another very important parameter that affects our bigram model performance is the threshold. Threshold determines the point/the value where we classify a sentence as grammtically correct or not. So if we choose a relatively low threshold, it may lead to too many False Positives which we would not want. In case of using a relatively high threshold, it may lead to too many False Negatives which we definitely want to avoid. Since we care more about the False Negative Rate (detecting the sentences which are grammatically incorrect) maybe we could choose a bit lower threshold. One way to find a 'good' threshold would be to tune it. We can select a range of values and make predictions using different threshold (which means different models) on new test sentences and check how the language model performs. In the end we choose the value of threshold which gives the highest performance. Some good performance metrics that we might use to evaluate our different language models in our case would be F1 Score or Recall.
+4. One other hyperparameter that affects our bi-gram language model performance is the k-smoothing parameter. There are different ways to perform Smoothing in language models for example : 
+Add-One Smoothing, K-Smoothing etc. In our case we are going to apply K-Smoothing. The advantage of K-Smoothing consists of improving the probability distributions. In case of K=1 smoothing may lead to sharp changes in probabilities. For example two different sentences that have the same probability (without k-smoothing which means k=0), after applying k=1 smoothing they may have different probabilities.
+5. Increasing the test set. The bigger the test set, the better our model can generalize on new test sentences. I used a special test set that includes some grammer errors like Noun-Verb agreement and Determinant-Noun agreement. It is still a very small test set and it would be a good idea to have such more examples and check how the model performs. We should keep in mind that the tuned threshold and k-smoothing parameter may overfit to this small test set.
 
 ## Demo
 
