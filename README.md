@@ -18,13 +18,14 @@
 
 ## Business Problem Statement
 
+
 ## Data
 Data Source : P
 
 ## Used Libraries and Resources
 **Python Version** : 3.6
 
-**Libraries** : sklearn, pandas, numpy, matplotlib, seaborn, flask, json, pickle
+**Libraries** : No python library is used. Everything is implemented from scratch
 
 **References** : https://towardsdatascience.com/, https://machinelearningmastery.com/
 
@@ -105,5 +106,6 @@ This is how the web application looks like :
 If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an [issue](https://github.com/Lori10/Statistical-Grammer-Checker-FromScratch/issues) here by including your search query and the expected result
 
 ## Future Scope
-* Try other smoothing techniques.
+* Try other techniques to reach higher model performance for example : other smoothing techniques, interpolation, backoff which help us better estimate the probabilities of unseen n-gram sequences.
+* Use other performance metrics to select the best model like perplexity etc.
 * Optimize Flask app.py Front End.
