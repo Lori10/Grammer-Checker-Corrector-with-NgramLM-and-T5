@@ -71,6 +71,16 @@ Note : The goal is to check for grammer errors. We assume that the training data
 Add-One Smoothing, K-Smoothing etc. In our case we are going to apply K-Smoothing. The advantage of K-Smoothing consists of improving the probability distributions. In case of K=1 smoothing may lead to sharp changes in probabilities. For example two different sentences that have the same probability (without k-smoothing which means k=0), after applying k=1 smoothing they may have different probabilities.
 5. Increasing the test set. The bigger the test set, the better our model can generalize on new test sentences. I used a special test set that includes some grammer errors like Noun-Verb agreement and Determinant-Noun agreement. It is still a very small test set and it would be a good idea to have such more examples and check how the model performs. We should keep in mind that the tuned threshold and k-smoothing parameter may overfit to this small test set.
 
+## Important notes 
+* We dont divide our corpus/text dataset into training and test set since we assume that the entire text data is grammatically correct. Since we want to catch specific grammer errors I will build the test set manually and check the language model performance especially on those chosen test sentences. We should always keep in mind that there is no guarentee that the model will perform well on other unseen test sets because our test is quite small.
+* The bigram language model can detect grammer errors that include 2 grams/tokens for example noun-verb agreement, determinant-noun agreement, adjective order etc which we can detect using a bigram language model. If we want to catch other grammer errors on the long term we have to look at the words beyond 2 grams; thats why in those cases we should use n gram language model where n>=3.
+
+## Faced Issues
+* Basic sentences that are very commonly used are classified correctly , some sentences are grammatically correct but classified as grammatically incorrect by our bigram model since most of their words do not appear in our corpus. /n
+<b>Possible Solution</b> : increase the corpus size.
+- The longer the sentences the lower the probability becomes. Since we multiply by numbers that are lower than 1 the sentence probability decreases. This means that the longer the sentence the lower the probability that it is correct. The sentence may be very long and grammatically correct but is classified as grammatically incorrect by our model because of its high length. /n
+<b>Possible Solution</b> Finding out the right value of k-smoothing parameter since it affects the distribution of the probabilities.
+
 ## Demo
 
 This is how the web application looks like : 
