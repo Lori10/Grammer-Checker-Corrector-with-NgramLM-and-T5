@@ -39,7 +39,7 @@ Note : The goal is to check for grammer errors. We assume that the training data
 ## Model Building (Developing a bigram language model)
 
 * A n-gram language model assumes that the probability of the next word depends only on previous n-1 grams. (The previous n-1 gram is the series of the previous 'n-1' words/tokens). In case of bigram language model the probability of the next word depends on the previous gram/word.
-* ![alt text](https://github.com/Lori10/Banglore-House-Price-Prediction/blob/master/Project%20Code%20Pycharm/demo_image.jpg "Image")
+* ![alt text](https://github.com/Lori10/Statistical-Grammer-Checker/blob/main/img1.jpg "Image")
 *
 
 | Model Name        | Deafult Model Test Score |Default Model Training Score | Default Model CV Score | Tuned Model Test Score | Tuned Model Training Score | Tuned Model CV Score | 
