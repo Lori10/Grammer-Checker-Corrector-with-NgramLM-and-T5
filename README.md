@@ -81,7 +81,7 @@ Add-One Smoothing, K-Smoothing etc. In our case we are going to apply K-Smoothin
 * Basic sentences that are very commonly used are classified correctly , some sentences are grammatically correct but classified as grammatically incorrect by our bigram model since most of their words do not appear in our corpus. <br />
 <b>Possible Solution</b> : increase the corpus size.
 * The longer the sentences the lower the probability becomes. Since we multiply by numbers that are lower than 1 the sentence probability decreases. This means that the longer the sentence the lower the probability that it is correct. The sentence may be very long and grammatically correct but is classified as grammatically incorrect by our model because of its high length. <br />
-<b>Possible Solution</b> Finding out the right value of k-smoothing parameter since it affects the distribution of the probabilities.
+<b>Possible Solution</b> : Finding out the right value of k-smoothing parameter since it affects the distribution of the probabilities.
 
 ## Demo
 
@@ -102,7 +102,8 @@ This is how the web application looks like :
 
 ## Bug / Feature Request
 
-If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an [issue](https://github.com/Lori10/Banglore-House-Price-Prediction/issues) here by including your search query and the expected result
+If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an [issue](https://github.com/Lori10/Statistical-Grammer-Checker-FromScratch/issues) here by including your search query and the expected result
 
 ## Future Scope
-* Optimize Flask app.py Front End
+* Try other smoothing techniques.
+* Optimize Flask app.py Front End.
