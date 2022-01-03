@@ -42,8 +42,8 @@ Note : The goal is to check for grammer errors. We assume that the training data
 * - The conditional probability for the word at position 't' in the sentence, given that the words preceding it is
 * ![alt text](https://github.com/Lori10/Statistical-Grammer-Checker/blob/main/img1.PNG "Image")
 * We can estimate this probability  by counting the occurrences of these series of words in the training data. The probability can be estimated as a ratio, where the numerator is the number of times word 't' appears after words t-1 till t-n in the training data/corpus and the denominator is the number of times word t-1 till t-n appears in the training data/corpus. In the bigram model, the numerator would be the number of times word 't' appears after words t-1 in the training data/corpus and the denominator is the number of times word t-1 appears in the training data/corpus. The function C() denotes the number of occurence of the given sequence. 
-* The real probability is P(t / t-1, t-2, t-3 ...) = P(t 
-
+* The real probability is 
+![alt text](https://github.com/Lori10/Statistical-Grammer-Checker-FromScratch/blob/main/img2.PNG "Image")
 
 | Model Name        | Deafult Model Test Score |Default Model Training Score | Default Model CV Score | Tuned Model Test Score | Tuned Model Training Score | Tuned Model CV Score | 
 |:-----------------:|:------------------------:|:---------------------------:|:----------------------:|:----------------------:|:--------------------------:|:---------------------:|
