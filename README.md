@@ -5,11 +5,11 @@
   * [Data](#Data)
   * [Used Libraries and Resources](#Used-Libraries-and-Resources)
   * [Data Preprocessing](#Data-Preprocessing)
-  * [Model Building and Tuning](#Model-Building-and-Tuning)
-  * [Other used Techniques](#Other-Used-Techniques)
+  * [Model Building](#Model-Building)
+  * [Model Tuning](#Model-Tuning)
+  * [Techniques to improve the model performance](#Techniques-to-improve-the-model-performance)
   * [Demo](#demo)
   * [Run project in your local machine](#Run-the-project-in-your-local-machine)
-  * [Directory Tree](#directory-tree)
   * [Bug / Feature Request](#bug---feature-request)
   * [Future scope of project](#future-scope)
 
@@ -36,7 +36,7 @@ I Preprocessed this data with the following steps:
 Note : The goal is to check for grammer errors. We assume that the training data/corpus is grammatically correct. That's why we should not perform any preprocessing technique to our training data/corpus in order to keep it unchanged. 
 
 
-## Model Building (Developing a bigram language model)
+## Model Building
 
 * A n-gram language model assumes that the probability of the next word depends only on previous n-1 grams. (The previous n-1 gram is the series of the previous 'n-1' words/tokens). In case of bigram language model the probability of the next word depends on the previous gram/word.
 * The conditional probability for the word at position 't' in the sentence, given that the words preceding it is :
@@ -49,6 +49,9 @@ Note : The goal is to check for grammer errors. We assume that the training data
 ![alt text](https://github.com/Lori10/Statistical-Grammer-Checker-FromScratch/blob/main/img3.PNG "Image")
 * The intuition of the n-gram model is that instead of computing the probability of a word given its entire history, we can approximate the history by just the last few words. The real probability of a sentence is calculated using the chain rule. The probability of each word is calculated based on the entire previous words in that sentence. P(word_A, word_B, word_C, word_D) = P(word_A) * P(word_B/word_A) * P(word_C/word_A,word_B) * P(word_D/word_A,word_B,word_C). What we do instead using n-gram analysis, we take into consideration only the last n-1 words to calculate the probability of the next word because in natural language a word may be only depends on some previous words and not only on the entire previous words of the sentence. In our case we are going to detect basic grammer errors which can easily be detected by only check the 2 consecutive words. That's why we chose to use bigram language model. The estimated probability of bigram model would be : estimated_P(word_A, word_B, word_C, word_D) = P(word_A) * P(word_B/word_A) * P(word_C/word_B) * P(word_D/word_C).
 * To evaluate the model we can use different metrics like auc score, f1-score, confusion matrix (False Positive, False Negative, True Positive, True Negative), accuracy score etc. In our case we want the model to detect the grammer errors which means that we should focus more in reaching a high True Positive Rate (Recall) / Low False Negative Rate. 
+
+
+## Model Tuning
 * We are going to perform hyperparameter tuning. Our hyperparameters for the bigram language model are the threshold and k-smoothing parameter. We are going to tune different values for threshold and k-smoothing parameter, check for each combination of them how the model behaves (measure different performance metrics like auc score, recall, f1 score, false positives) and choose the threshold that gives us the best performance. The metric that will determine the best model will be f1_score of class 0 since we want to focus more on predicting well sentences which are grammatically incorrect.
 * The table below shows the performance metrics auc score, f1 score and recall for the default and tuned bigram language model.
 
@@ -58,8 +61,6 @@ Note : The goal is to check for grammer errors. We assume that the training data
 |Tuned bigram language model        |     0.833                |     0.857                   |                  1     |     
 
 * After tuning the threshold and k smoothing parameter we could achieve a higher f1_score, higher auc score and higher recall which means an overall better model performance.
-* 
-
 
 ## Techniques to improve the model performance
 
