@@ -90,7 +90,7 @@ Add-One Smoothing, K-Smoothing etc. In our case we are going to apply K-Smoothin
 This is how the web application looks like : 
 
 
-![alt text](https://github.com/Lori10/Banglore-House-Price-Prediction/blob/master/Project%20Code%20Pycharm/demo_image.jpg "Image")
+![alt text](https://github.com/Lori10/Statistical-Grammer-Checker-FromScratch/blob/main/demo.png "Image")
 
 
 
