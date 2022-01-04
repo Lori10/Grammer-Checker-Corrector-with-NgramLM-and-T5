@@ -88,7 +88,7 @@ Add-One Smoothing, K-Smoothing etc. In our case we are going to apply K-Smoothin
 ## Demo
 
 This is how the web application looks like : 
-
+We should input the sentence that we want to check for grammer errors and select the value of n for the n-gram language model. 
 
 ![alt text](https://github.com/Lori10/Statistical-Grammer-Checker-FromScratch/blob/main/demo.png "Image")
 
