@@ -11,7 +11,6 @@
   * [Important Notes](#Important-Notes)
   * [Faced Issues](#Faced-Issues)
   * [Demo](#demo)
-  * [Run project in your local machine](#Run-the-project-in-your-local-machine)
   * [Bug / Feature Request](#bug---feature-request)
   * [Future scope of project](#future-scope)
 
@@ -91,15 +90,6 @@ This is how the web application looks like :
 We should input the sentence that we want to check for grammer errors and select the value of n for the n-gram language model. 
 
 ![alt text](https://github.com/Lori10/Statistical-Grammer-Checker-FromScratch/blob/main/demo.png "Image")
-
-
-
-## Run the project in your local machine 
-
-1. Clone the repository
-2. Open the project directory (PyCharm Project Code folder) in PyCharm  and create a Python Interpreter using Conda Environment : Settings - Project : Project Code Pycharm - Python Interpreter - Add - Conda Environment - Select Python Version 3.6 - 
-3. Run the following command in the terminal to install the required packages and libraries : pip install -r requirements.txt
-4. Run the file app.py by clicking Run and open the API that shows up in the bottom of terminal.
 
 
 ## Bug / Feature Request
