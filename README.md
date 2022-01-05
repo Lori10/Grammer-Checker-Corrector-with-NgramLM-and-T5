@@ -11,7 +11,7 @@
   * [Important Notes](#Important-Notes)
   * [Faced Issues](#Faced-Issues)
   * [Demo](#demo)
-  * [Bug / Feature Request](#bug---feature-request)
+  * [Bug and Feature Request](#Bug-and-Feature-Request)
   * [Future scope of project](#future-scope)
 
 
@@ -92,7 +92,7 @@ We should input the sentence that we want to check for grammer errors and select
 ![alt text](https://github.com/Lori10/Statistical-Grammer-Checker-FromScratch/blob/main/demo.png "Image")
 
 
-## Bug / Feature Request
+## Bug and Feature Request
 
 If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an [issue](https://github.com/Lori10/Statistical-Grammer-Checker-FromScratch/issues) here by including your search query and the expected result
 
