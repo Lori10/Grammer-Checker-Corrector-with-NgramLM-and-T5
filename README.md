@@ -9,7 +9,7 @@
   * [Model Tuning](#Model-Tuning)
   * [Techniques to improve the model performance](#Techniques-to-improve-the-model-performance)
   * [Important Notes](#Important-Notes)
-  * [Faced Issues](#Faced-Issues)
+  * [Disadvantages of N gram language model and faced issues](#Disadvantages-of-N-gram-language-model-and-faced-issues)
   * [Demo](#demo)
   * [Bug and Feature Request](#Bug-and-Feature-Request)
   * [Future scope of project](#future-scope)
@@ -78,11 +78,16 @@ Add-One Smoothing, K-Smoothing etc. In our case we are going to apply K-Smoothin
 * We dont divide our corpus/text dataset into training and test set since we assume that the entire text data is grammatically correct. Since we want to catch specific grammer errors I will build the test set manually and check the language model performance especially on those chosen test sentences. We should always keep in mind that there is no guarentee that the model will perform well on other unseen test sets because our test is quite small.
 * The bigram language model can detect grammer errors that include 2 grams/tokens for example noun-verb agreement, determinant-noun agreement, adjective order etc which we can detect using a bigram language model. If we want to catch other grammer errors on the long term we have to look at the words beyond 2 grams; thats why in those cases we should use n gram language model where n>=3.
 
-## Faced Issues
+
+
+
+
+## Disadvantages of N gram language model and faced issues
+* The main disadvantage of n-gram language model is that it requires a lot of space and RAM. Especially in case of having long sentences the model should store the probabilities of all possible combinations and all the n-gram-counts dictionaries.
+* The longer the sentences the lower the probability becomes. Since we multiply by numbers that are lower than 1 the sentence probability decreases. This means that the longer the sentence the lower the probability that it is correct. The sentence may be very long and grammatically correct but is classified as grammatically incorrect by our model because of its high length. So it becomes very difficult to estimate the probability of long sentences due to their length. <br />
+<b>Possible Solution</b> : Finding out the right value of k-smoothing parameter since it affects the distribution of the probabilities.
 * Basic sentences that are very commonly used are classified correctly , some sentences are grammatically correct but classified as grammatically incorrect by our bigram model since most of their words do not appear in our corpus. <br />
 <b>Possible Solution</b> : increase the corpus size.
-* The longer the sentences the lower the probability becomes. Since we multiply by numbers that are lower than 1 the sentence probability decreases. This means that the longer the sentence the lower the probability that it is correct. The sentence may be very long and grammatically correct but is classified as grammatically incorrect by our model because of its high length. <br />
-<b>Possible Solution</b> : Finding out the right value of k-smoothing parameter since it affects the distribution of the probabilities.
 
 ## Demo
 
