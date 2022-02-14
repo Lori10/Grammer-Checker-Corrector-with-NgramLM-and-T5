@@ -1,4 +1,4 @@
-# Statistical-Grammer-Checker
+# Statistical-Grammer-Checker-and-Corrector
 
 ## Table of Content
   * [Business Problem Statement](#Business-Problem-Statement)
