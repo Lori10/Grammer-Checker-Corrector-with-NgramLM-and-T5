@@ -24,7 +24,7 @@ Data Source : US Tweets.
 ## Used Libraries and Resources
 **Python Version** : 3.6
 
-**Libraries** : No python library is used. Everything is implemented from scratch
+**Libraries** : transformers (huggingface). Bigram Language model is implemented completely from scratch.
 
 **References** : https://towardsdatascience.com/, https://machinelearningmastery.com/
 
