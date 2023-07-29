@@ -1,4 +1,4 @@
-# Statistical-Grammer-Checker-and-Corrector
+# Grammer-Checker-and-Corrector-with-N-Gram LM-and-T5
 
 ## Table of Content
   * [Business Problem Statement](#Business-Problem-Statement)
